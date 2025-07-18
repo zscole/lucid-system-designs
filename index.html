@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DELIVERY SYSTEM: An Unauthorized History</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ff4500, #9400d3, #32cd32, #ff1493);
+            background-size: 400% 400%;
+            animation: psychedelicBackground 8s ease-in-out infinite;
+            color: #fff;
+            overflow-x: hidden;
+            cursor: crosshair;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        @keyframes psychedelicBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .main-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 8vw, 6rem);
+            color: #fff;
+            text-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff, 0 0 60px #ff4500;
+            animation: titleGlow 3s ease-in-out infinite alternate, titleWarp 6s ease-in-out infinite;
+            margin-bottom: 1rem;
+            transform-origin: center;
+            letter-spacing: -0.02em;
+        }
+        
+        @keyframes titleGlow {
+            0% { 
+                text-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff, 0 0 60px #ff4500;
+                filter: hue-rotate(0deg);
+            }
+            100% { 
+                text-shadow: 0 0 40px #00ffff, 0 0 80px #ff00ff, 0 0 120px #32cd32;
+                filter: hue-rotate(180deg);
+            }
+        }
+        
+        @keyframes titleWarp {
+            0% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1); }
+            25% { transform: perspective(1000px) rotateX(5deg) rotateY(-2deg) scale(1.05); }
+            50% { transform: perspective(1000px) rotateX(-3deg) rotateY(3deg) scale(0.95); }
+            75% { transform: perspective(1000px) rotateX(2deg) rotateY(-1deg) scale(1.02); }
+            100% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1); }
+        }
+        
+        .subtitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: clamp(1rem, 3vw, 2rem);
+            color: #ff1493;
+            text-shadow: 0 0 10px #00ffff;
+            animation: float 4s ease-in-out infinite;
+            font-style: italic;
+            letter-spacing: 0.01em;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        
+        .intro-section {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #ff00ff;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+            animation: sectionPulse 6s ease-in-out infinite;
+        }
+        
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: #00ffff;
+            text-shadow: 0 0 20px #ff00ff;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            animation: titleJitter 3s ease-in-out infinite;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+        }
+        
+        .intro-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            animation: textGlow 4s ease-in-out infinite;
+            text-align: center;
+            max-width: 80ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @keyframes sectionPulse {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+                border-color: #ff00ff;
+            }
+            50% { 
+                box-shadow: 0 0 60px rgba(0, 255, 255, 0.5);
+                border-color: #00ffff;
+            }
+        }
+        
+        @keyframes titleJitter {
+            0%, 100% { transform: translateX(0px); }
+            10% { transform: translateX(-2px); }
+            20% { transform: translateX(2px); }
+            30% { transform: translateX(-1px); }
+            40% { transform: translateX(1px); }
+            50% { transform: translateX(0px); }
+        }
+        
+        @keyframes textGlow {
+            0%, 100% { 
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+                filter: brightness(1);
+            }
+            50% { 
+                text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+                filter: brightness(1.2);
+            }
+        }
+        
+        /* Conspiracy Sections */
+        .conspiracy-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid transparent;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            position: relative;
+            animation: sectionHover 8s ease-in-out infinite;
+        }
+        
+        .conspiracy-section::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ff4500, #32cd32);
+            border-radius: 25px;
+            z-index: -1;
+            animation: borderShift 6s ease-in-out infinite;
+        }
+        
+        @keyframes borderShift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(180deg); }
+        }
+        
+        @keyframes sectionHover {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* Evidence Grid */
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .evidence-card {
+            background: rgba(20, 0, 40, 0.8);
+            border: 2px solid #ff00ff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            animation: cardFloat 7s ease-in-out infinite;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .evidence-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.2), transparent);
+            animation: cardScan 4s ease-in-out infinite;
+        }
+        
+        @keyframes cardScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .evidence-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            border-color: #00ffff;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+        }
+        
+        .card-title {
+            font-family: 'Creepster', cursive;
+            font-size: 1.3rem;
+            color: #00ffff;
+            text-shadow: 0 0 10px #ff00ff;
+            margin-bottom: 1rem;
+            animation: titleFlicker 3s ease-in-out infinite;
+        }
+        
+        .card-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            animation: textShimmer 5s ease-in-out infinite;
+        }
+        
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px) rotateZ(0deg); }
+            33% { transform: translateY(-8px) rotateZ(1deg); }
+            66% { transform: translateY(4px) rotateZ(-0.5deg); }
+        }
+        
+        @keyframes titleFlicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        /* Methods Section */
+        .methods-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .method-item {
+            background: rgba(40, 0, 20, 0.9);
+            border: 2px solid #ff4500;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            animation: methodPulse 6s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .method-item:hover {
+            transform: scale(1.08);
+            border-color: #00ffff;
+            background: rgba(60, 0, 30, 0.95);
+        }
+        
+        .method-title {
+            font-family: 'Nosifer', cursive;
+            font-size: 1.5rem;
+            color: #ff4500;
+            text-shadow: 0 0 15px #ff00ff;
+            margin-bottom: 1rem;
+            animation: methodGlow 4s ease-in-out infinite;
+        }
+        
+        .method-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            animation: textPulse 5s ease-in-out infinite;
+        }
+        
+        @keyframes methodPulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+                transform: translateY(0px);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 69, 0, 0.6);
+                transform: translateY(-5px);
+            }
+        }
+        
+        @keyframes methodGlow {
+            0%, 100% { 
+                text-shadow: 0 0 15px #ff00ff;
+                filter: brightness(1);
+            }
+            50% { 
+                text-shadow: 0 0 25px #00ffff, 0 0 35px #ff4500;
+                filter: brightness(1.3);
+            }
+        }
+        
+        @keyframes textPulse {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+        
+        /* Smoking Guns Section */
+        .evidence-list {
+            margin-top: 2rem;
+        }
+        
+        .smoking-gun {
+            display: flex;
+            align-items: flex-start;
+            background: rgba(60, 0, 0, 0.8);
+            border: 2px solid #ff1493;
+            border-radius: 20px;
+            margin: 2rem 0;
+            padding: 2rem;
+            animation: gunFloat 8s ease-in-out infinite;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .smoking-gun::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+            animation: gunGlow 6s ease-in-out infinite;
+        }
+        
+        .smoking-gun:hover {
+            transform: scale(1.02) rotate(1deg);
+            border-color: #00ffff;
+            background: rgba(80, 0, 0, 0.9);
+        }
+        
+        .gun-number {
+            font-family: 'Creepster', cursive;
+            font-size: 3rem;
+            color: #ff1493;
+            text-shadow: 0 0 20px #00ffff;
+            margin-right: 2rem;
+            animation: numberPulse 4s ease-in-out infinite;
+            min-width: 80px;
+        }
+        
+        .gun-content {
+            flex: 1;
+        }
+        
+        .gun-title {
+            font-family: 'Nosifer', cursive;
+            font-size: 1.4rem;
+            color: #00ffff;
+            text-shadow: 0 0 15px #ff1493;
+            margin-bottom: 1rem;
+            animation: titleDistort 5s ease-in-out infinite;
+        }
+        
+        .gun-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            animation: textShimmer 6s ease-in-out infinite;
+        }
+        
+        @keyframes gunFloat {
+            0%, 100% { transform: translateY(0px) rotateZ(0deg); }
+            50% { transform: translateY(-8px) rotateZ(0.5deg); }
+        }
+        
+        @keyframes gunGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes numberPulse {
+            0%, 100% { 
+                transform: scale(1);
+                text-shadow: 0 0 20px #00ffff;
+            }
+            50% { 
+                transform: scale(1.1);
+                text-shadow: 0 0 30px #ff1493, 0 0 40px #00ffff;
+            }
+        }
+        
+        @keyframes titleDistort {
+            0%, 100% { transform: skewX(0deg); }
+            25% { transform: skewX(1deg); }
+            75% { transform: skewX(-1deg); }
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            text-align: center;
+            margin: 4rem auto 2rem;
+            padding: 2rem;
+        }
+        
+        /* Analysis Section */
+        .analysis-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .success-metric {
+            background: rgba(0, 40, 20, 0.8);
+            border: 2px solid #32cd32;
+            border-radius: 15px;
+            padding: 2rem;
+            animation: metricGlow 7s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .success-metric:hover {
+            transform: scale(1.05) rotate(1deg);
+            border-color: #00ffff;
+            background: rgba(0, 60, 30, 0.9);
+        }
+        
+        .metric-title {
+            font-family: 'Nosifer', cursive;
+            font-size: 1.4rem;
+            color: #32cd32;
+            text-shadow: 0 0 15px #ff00ff;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: metricPulse 4s ease-in-out infinite;
+        }
+        
+        .metric-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            animation: textShimmer 6s ease-in-out infinite;
+        }
+        
+        .final-analysis {
+            background: rgba(60, 0, 60, 0.9);
+            border: 3px solid #ff1493;
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 3rem;
+            text-align: center;
+            animation: analysisFloat 8s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .final-analysis::before {
+            content: '⚠️';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            animation: warningBlink 2s ease-in-out infinite;
+        }
+        
+        .analysis-title {
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            color: #ff1493;
+            text-shadow: 0 0 20px #00ffff;
+            margin-bottom: 2rem;
+            animation: analysisGlow 5s ease-in-out infinite;
+        }
+        
+        .analysis-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            animation: textIntensify 7s ease-in-out infinite;
+        }
+        
+        @keyframes metricGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(50, 205, 50, 0.3);
+                filter: hue-rotate(0deg);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(50, 205, 50, 0.6);
+                filter: hue-rotate(60deg);
+            }
+        }
+        
+        @keyframes metricPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes analysisFloat {
+            0%, 100% { transform: translateY(0px) rotateZ(0deg); }
+            50% { transform: translateY(-10px) rotateZ(0.5deg); }
+        }
+        
+        @keyframes warningBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        @keyframes analysisGlow {
+            0%, 100% { 
+                text-shadow: 0 0 20px #00ffff;
+                filter: brightness(1);
+            }
+            50% { 
+                text-shadow: 0 0 30px #ff1493, 0 0 40px #00ffff;
+                filter: brightness(1.3);
+            }
+        }
+        
+        @keyframes textIntensify {
+            0%, 100% { 
+                opacity: 0.9;
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                opacity: 1;
+                text-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+            }
+        }
+        
+        .timeline-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+        
+        .timeline-item {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            animation: itemFloat 6s ease-in-out infinite;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            animation-delay: -3s;
+            margin-left: 2rem;
+        }
+        
+        .timeline-item:nth-child(even) {
+            animation-delay: -1.5s;
+            margin-right: 2rem;
+        }
+        
+        .timeline-item:hover {
+            transform: scale(1.05) rotate(1deg);
+            border-color: #ff00ff;
+            box-shadow: 0 0 50px rgba(255, 0, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.5);
+        }
+        
+        @keyframes itemFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotateZ(0deg);
+                filter: hue-rotate(0deg);
+            }
+            33% { 
+                transform: translateY(-8px) rotateZ(0.5deg);
+                filter: hue-rotate(60deg);
+            }
+            66% { 
+                transform: translateY(4px) rotateZ(-0.3deg);
+                filter: hue-rotate(120deg);
+            }
+        }
+        
+        .year {
+            font-family: 'Creepster', cursive;
+            font-size: 1.5rem;
+            color: #00ffff;
+            text-shadow: 0 0 15px #ff00ff;
+            animation: jitter 2s infinite;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes jitter {
+            0%, 100% { transform: translateX(0px); }
+            10% { transform: translateX(-1px); }
+            20% { transform: translateX(1px); }
+            30% { transform: translateX(-1px); }
+            40% { transform: translateX(1px); }
+            50% { transform: translateX(-1px); }
+            60% { transform: translateX(1px); }
+            70% { transform: translateX(-1px); }
+            80% { transform: translateX(1px); }
+            90% { transform: translateX(-1px); }
+        }
+        
+        .event-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            animation: textShimmer 4s ease-in-out infinite;
+        }
+        
+        @keyframes textShimmer {
+            0%, 100% { opacity: 0.9; filter: brightness(1); }
+            50% { opacity: 1; filter: brightness(1.2); }
+        }
+        
+        .final-revelation {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-family: 'Nosifer', cursive;
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: #fff;
+            text-shadow: 0 0 30px #ff00ff, 0 0 60px #00ffff;
+            animation: pulse 3s ease-in-out infinite, revelationGlow 6s ease-in-out infinite;
+            margin: 4rem 0;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes revelationGlow {
+            0% { filter: hue-rotate(0deg) brightness(1); }
+            100% { filter: hue-rotate(360deg) brightness(1.3); }
+        }
+        
+        .exit-button {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: transparent;
+            border: 3px solid transparent;
+            color: transparent;
+            font-family: 'Metal Mania', cursive;
+            font-size: 2rem;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            z-index: 1000;
+            border-radius: 10px;
+        }
+        
+        .exit-button:hover {
+            color: #ff00ff;
+            border-color: #ff00ff;
+            background: rgba(0, 0, 0, 0.8);
+            text-shadow: 0 0 20px #00ffff;
+            animation: exitGlow 1s ease-in-out infinite;
+        }
+        
+        @keyframes exitGlow {
+            0%, 100% { box-shadow: 0 0 20px #ff00ff; }
+            50% { box-shadow: 0 0 40px #ff00ff, 0 0 60px #00ffff; }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            font-family: 'Nosifer', cursive;
+            font-size: 1.2rem;
+            color: #ff1493;
+            text-shadow: 0 0 10px #00ffff;
+            animation: footerFlicker 3s ease-in-out infinite;
+            border-top: 2px solid rgba(255, 0, 255, 0.3);
+            margin-top: 4rem;
+        }
+        
+        @keyframes footerFlicker {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline-item {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            .header {
+                padding: 1rem;
+            }
+            
+            .timeline-container {
+                padding: 0 1rem;
+            }
+            
+            .conspiracy-section {
+                margin: 2rem 1rem;
+                padding: 1rem;
+            }
+            
+            .intro-section {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
+            }
+            
+            .evidence-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .methods-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .method-item {
+                padding: 1.5rem;
+            }
+            
+            .method-title {
+                font-size: 1.2rem;
+            }
+            
+            .smoking-gun {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+            
+            .gun-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+                font-size: 2rem;
+            }
+            
+            .analysis-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .success-metric {
+                padding: 1.5rem;
+            }
+            
+            .final-analysis {
+                padding: 2rem;
+                margin-top: 2rem;
+            }
+            
+            .analysis-title {
+                font-size: 1.5rem;
+            }
+            
+            .analysis-text {
+                font-size: 1rem;
+            }
+            
+            .psyop-floating {
+                width: 120px;
+                top: 10%;
+                right: 2%;
+            }
+            
+            .psyop-background {
+                width: 200px;
+                opacity: 0.05;
+            }
+            
+            .psyop-center {
+                width: 250px;
+                margin: 2rem auto;
+            }
+        }
+        
+        /* Cursor trail effect */
+        .cursor-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #ff00ff, #00ffff);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            animation: trailFade 1s ease-out forwards;
+        }
+        
+        @keyframes trailFade {
+            0% { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+            100% { 
+                opacity: 0; 
+                transform: scale(0);
+            }
+        }
+        
+        /* Psyop Image Effects */
+        .psyop-floating {
+            position: fixed;
+            top: 20%;
+            right: 5%;
+            width: 200px;
+            height: auto;
+            z-index: 5;
+            animation: psyopFloat 8s ease-in-out infinite, psyopGlow 4s ease-in-out infinite;
+            filter: hue-rotate(0deg) saturate(1.5) brightness(1.2);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+        }
+        
+        .psyop-floating:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+            filter: hue-rotate(180deg) saturate(2) brightness(1.5);
+            box-shadow: 0 0 50px rgba(255, 0, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.6);
+        }
+        
+        @keyframes psyopFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                filter: hue-rotate(0deg) saturate(1.5) brightness(1.2);
+            }
+            25% { 
+                transform: translateY(-15px) rotate(2deg);
+                filter: hue-rotate(90deg) saturate(2) brightness(1.4);
+            }
+            50% { 
+                transform: translateY(-5px) rotate(-1deg);
+                filter: hue-rotate(180deg) saturate(1.8) brightness(1.1);
+            }
+            75% { 
+                transform: translateY(-20px) rotate(1deg);
+                filter: hue-rotate(270deg) saturate(1.6) brightness(1.3);
+            }
+        }
+        
+        @keyframes psyopGlow {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+            }
+            50% { 
+                box-shadow: 0 0 60px rgba(0, 255, 255, 0.8), 0 0 90px rgba(255, 20, 147, 0.6);
+            }
+        }
+        
+        .psyop-background {
+            position: fixed;
+            top: 10%;
+            left: -10%;
+            width: 300px;
+            height: auto;
+            z-index: -2;
+            opacity: 0.1;
+            animation: psyopBackgroundDrift 15s linear infinite;
+            filter: blur(2px) hue-rotate(0deg);
+        }
+        
+        @keyframes psyopBackgroundDrift {
+            0% { 
+                transform: translateX(-100px) rotate(0deg);
+                filter: blur(2px) hue-rotate(0deg);
+            }
+            100% { 
+                transform: translateX(calc(100vw + 200px)) rotate(360deg);
+                filter: blur(2px) hue-rotate(360deg);
+            }
+        }
+        
+        .psyop-center {
+            display: block;
+            margin: 4rem auto;
+            width: 300px;
+            height: auto;
+            animation: psyopPulse 5s ease-in-out infinite, psyopRotate 20s linear infinite;
+            filter: drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 40px #00ffff);
+            border-radius: 15px;
+        }
+        
+        @keyframes psyopPulse {
+            0%, 100% { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 40px #00ffff) hue-rotate(0deg);
+            }
+            50% { 
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 40px #00ffff) drop-shadow(0 0 60px #ff00ff) hue-rotate(180deg);
+            }
+        }
+        
+        @keyframes psyopRotate {
+            0% { filter: drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 40px #00ffff) hue-rotate(0deg); }
+            100% { filter: drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 40px #00ffff) hue-rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <div class="matrix-rain" id="matrix"></div>
+    
+    <!-- Floating Psyop Image -->
+    <img src="psyop.png" alt="PSYOP" class="psyop-floating" title="The Operation is Real">
+    
+    <!-- Background Drifting Psyop -->
+    <img src="psyop.png" alt="PSYOP" class="psyop-background">
+    
+    <!-- Invisible Exit Button -->
+    <button class="exit-button" onclick="window.close()">CLICK TO EXIT THE SYSTEM</button>
+    
+    <!-- Header -->
+    <div class="header">
+        <h1 class="main-title">THE DELIVERY SYSTEM: AN UNAUTHORIZED HISTORY</h1>
+        <p class="subtitle">Lucid System Designs is not a company. It's a warning.</p>
+        
+        <!-- Introduction Section -->
+        <div class="intro-section">
+            <h2 class="section-title">OPERATION GRATEFUL DEAD</h2>
+            <p class="intro-text">
+                What if the most beloved counterculture band in American history was actually the most successful psychological operation ever conducted? 
+                What if the "peace and love" movement was engineered by the same people who brought you MKULTRA, COINTELPRO, and the Kennedy assassination?
+            </p>
+            <p class="intro-text">
+                The evidence is hiding in plain sight. They didn't need to control the counterculture—they created it.
+            </p>
+        </div>
+    </div>
+    
+    <!-- The Network Section -->
+    <div class="conspiracy-section">
+        <h2 class="section-title">THE NETWORK</h2>
+        <div class="evidence-grid">
+            <div class="evidence-card">
+                <h3 class="card-title">STANFORD RESEARCH INSTITUTE</h3>
+                <p class="card-text">Where Ken Kesey was first dosed as part of MKULTRA Subproject 27. The same facility that developed ARPANET and remote viewing programs. Kesey walks out with LSD and a mission.</p>
+            </div>
+            <div class="evidence-card">
+                <h3 class="card-title">MENLO PARK VA HOSPITAL</h3>
+                <p class="card-text">Ground zero for CIA mind control experiments. Leo Hollister runs LSD studies on veterans. Robert Hunter volunteers. The future Dead lyricist emerges writing in "symbolic language."</p>
+            </div>
+            <div class="evidence-card">
+                <h3 class="card-title">BOHEMIAN GROVE</h3>
+                <p class="card-text">Where intelligence assets and Silicon Valley elites meet annually. The Dead played private shows for this shadow network throughout the 1980s. No recordings. No witnesses.</p>
+            </div>
+            <div class="evidence-card">
+                <h3 class="card-title">OWSLEY STANLEY</h3>
+                <p class="card-text">Mass-produces LSD with no chemistry background. Funds the band. Builds their sound system. Gets arrested, walks away. No serious jail time. Operation continues uninterrupted.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Methods Section -->
+    <div class="conspiracy-section">
+        <h2 class="section-title">THE METHODS</h2>
+        <div class="methods-container">
+            <div class="method-item">
+                <h3 class="method-title">🎵 SONIC WARFARE</h3>
+                <p class="method-text">The Wall of Sound wasn't about music—it was about frequency manipulation. 28,000 watts of precisely calibrated audio designed to alter brainwave patterns. Phil Lesh studied electronic music and frequency modulation before joining the band.</p>
+            </div>
+            <div class="method-item">
+                <h3 class="method-title">💊 CHEMICAL DISTRIBUTION</h3>
+                <p class="method-text">Free LSD at every show created a controlled environment for mass behavioral studies. Dosage, set, setting, and crowd dynamics all monitored. The audience was the experiment.</p>
+            </div>
+            <div class="method-item">
+                <h3 class="method-title">📡 DATA COLLECTION</h3>
+                <p class="method-text">Concert tapes weren't bootlegs—they were research data. Every show recorded, audience reactions catalogued. The Dead encouraged taping to maximize data collection across their network.</p>
+            </div>
+            <div class="method-item">
+                <h3 class="method-title">🌐 SOCIAL MAPPING</h3>
+                <p class="method-text">Deadheads became a trackable subculture. No fixed addresses, cash-only economy, but predictable migration patterns. Perfect for studying distributed influence networks.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Evidence Section -->
+    <div class="conspiracy-section">
+        <h2 class="section-title">THE SMOKING GUNS</h2>
+        <div class="evidence-list">
+            <div class="smoking-gun">
+                <span class="gun-number">01</span>
+                <div class="gun-content">
+                    <h4 class="gun-title">THE EGYPTIAN CONCERTS</h4>
+                    <p class="gun-text">September 1978: The Dead play three nights at the Great Pyramid with no label support, no tour funding, no official explanation. Sound equipment positioned to project frequencies into ancient architecture during a rare planetary alignment. Acoustic resonance experiments conducted under cover of rock concert.</p>
+                </div>
+            </div>
+            <div class="smoking-gun">
+                <span class="gun-number">02</span>
+                <div class="gun-content">
+                    <h4 class="gun-title">FBI SURVEILLANCE TAPES</h4>
+                    <p class="gun-text">Released FOIA documents reveal continuous FBI monitoring from 1965-1995. But here's the anomaly: they never disrupted operations. No raids, no arrests, no interference. They were protecting the operation, not investigating it.</p>
+                </div>
+            </div>
+            <div class="smoking-gun">
+                <span class="gun-number">03</span>
+                <div class="gun-content">
+                    <h4 class="gun-title">GARCIA'S "DEATH" AND REBIRTH</h4>
+                    <p class="gun-text">1986: Garcia falls into a diabetic coma. Emerges weeks later fundamentally changed. Different playing style, darker lyrics, distant eyes. Band insiders whisper about "programming sessions" during his unconscious period.</p>
+                </div>
+            </div>
+            <div class="smoking-gun">
+                <span class="gun-number">04</span>
+                <div class="gun-content">
+                    <h4 class="gun-title">THE ALTAMONT EXTRACTION</h4>
+                    <p class="gun-text">December 1969: The Dead are scheduled to close Altamont but leave before their set. They knew what was coming. CIA debrief documents later classify the event as a "successful chaos generation exercise under live conditions."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline Content -->
+    <div class="timeline-section">
+        <h2 class="section-title">THE OPERATIONAL TIMELINE</h2>
+    </div>
+    <div class="timeline-container">
+        <div class="timeline-item">
+            <span class="year">1953–1995 | CLASSIFIED OPERATIONAL FRAMEWORK</span>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1953</span>
+            <p class="event-text">MKULTRA approved. CIA begins testing LSD on civilians, soldiers, prisoners, and psych patients. Sidney Gottlieb buys the world's LSD supply. Stanford, Harvard, and the VA system become distribution nodes.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1959</span>
+            <p class="event-text">Ken Kesey gets dosed at Menlo Park VA. Thinks it's a study. It's a subproject. Starts seeing colors, hears voices, forms the Merry Pranksters. Goes mobile.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1960</span>
+            <p class="event-text">Robert Hunter volunteers for a "visionary compound" trial at Stanford. Doesn't know it's part of MKULTRA. Starts writing in symbols. Later becomes the Dead's lyricist.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1965</span>
+            <p class="event-text">The Grateful Dead form. They're just guys with instruments. Then Kesey pulls them into the Acid Tests. Free LSD, strobe lights, feedback loops. There are no tickets, no records, no oversight. The crowd becomes the study.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1966</span>
+            <p class="event-text">Owsley Stanley bankrolls the band. Also cooks 1.25 million hits of LSD. He's their chemist, financier, and sound engineer. Gets arrested. Walks away. No serious jail time. No lab shutdown. Supply continues.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1967</span>
+            <p class="event-text">Haight-Ashbury explodes. 100,000+ youth converge on a four-block radius. CIA's Operation CHAOS deploys domestic surveillance teams. Operation Midnight Climax runs LSD safehouses a few miles away. The Dead play live nearly every weekend.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1969</span>
+            <p class="event-text">Altamont Free Concert. The Dead are scheduled to play but leave early. A man is stabbed in front of the stage. Hells Angels are security. CIA debrief labels the event "a chaotic mass response under duress." Live behavioral stress data captured.</p>
+        </div>
+        
+        <!-- Central Psyop Image - The Truth Revealed -->
+        <img src="psyop.png" alt="PSYCHOLOGICAL OPERATION" class="psyop-center" title="You Are Here">
+        
+        <div class="timeline-item">
+            <span class="year">1970</span>
+            <p class="event-text">FBI wiretaps the Dead's phones. No raids. No disruption. Just listening.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1974</span>
+            <p class="event-text">The Wall of Sound debuts. 28,000 watts. Isolated frequency delivery. Built by a rogue chemist, funded with LSD profits. Engineered for clarity—not volume. Behavior modulation, not entertainment.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1978</span>
+            <p class="event-text">The band plays Egypt. Three nights next to the Great Pyramid. No one explains why. No label funding. No tour support. Sound waves projected into ancient architecture under full moon. Some kind of resonance test.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1980s</span>
+            <p class="event-text">Deadheads become a decentralized, cash-based, migratory subculture. No IDs. No leases. No fixed location. Ideal for monitoring distributed influence. Shows function as synchronized mass rituals.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1986</span>
+            <p class="event-text">Garcia slips into a diabetic coma. Comes back changed. Plays stranger. Lyrics turn darker. Eyes look off. Theories of deep state reprogramming circulate among inner crew.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">1995</span>
+            <p class="event-text">Jerry Garcia dies. FBI closes active surveillance case. MKULTRA documents continue to surface under FOIA.</p>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="year">Present Day</span>
+            <p class="event-text">Steal Your Face logo still everywhere. Dancing Bears on baby clothes. Psychedelics being legalized. The experiment never ended. It scaled.</p>
+        </div>
+    </div>
+    
+    <!-- Analysis Section -->
+    <div class="conspiracy-section">
+        <h2 class="section-title">THE OPERATION'S SUCCESS</h2>
+        <div class="analysis-content">
+            <div class="success-metric">
+                <h3 class="metric-title">CULTURAL PENETRATION</h3>
+                <p class="metric-text">The Grateful Dead logo is now more recognizable than most corporate brands. Dancing Bears appear on children's clothing. The symbols of the operation have become mainstream cultural artifacts, continuing the programming decades after the band's dissolution.</p>
+            </div>
+            <div class="success-metric">
+                <h3 class="metric-title">BEHAVIORAL CONDITIONING</h3>
+                <p class="metric-text">Deadheads exhibit classic conditioning responses: ritualistic behavior, tribal loyalty, resistance to traditional authority structures, but complete acceptance of the band's authority. A perfect model for distributed social control.</p>
+            </div>
+            <div class="success-metric">
+                <h3 class="metric-title">DATA LEGACY</h3>
+                <p class="metric-text">Thousands of hours of recorded concerts provide the most comprehensive database of crowd behavior under psychedelic influence ever compiled. This data informed subsequent operations in rave culture, festival circuits, and social media algorithms.</p>
+            </div>
+        </div>
+        
+        <div class="final-analysis">
+            <h3 class="analysis-title">THE ULTIMATE ACHIEVEMENT</h3>
+            <p class="analysis-text">
+                The Grateful Dead weren't just a band—they were a proof of concept. They demonstrated that you could create a completely artificial counterculture movement, populate it with willing subjects, study their behavior for decades, and have them thank you for the experience. The psychedelic revolution wasn't stolen by the establishment—it WAS the establishment.
+            </p>
+            <p class="analysis-text">
+                Today, as psychedelics are being re-legalized and reintroduced into mainstream culture, ask yourself: who benefits? The same institutions that created the problem are now selling you the solution. The operation never ended. It just went legitimate.
+            </p>
+        </div>
+    </div>
+
+    <!-- Final Revelation -->
+    <div class="final-revelation">
+        They engineered the culture so they wouldn't need to control it.
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        © Lucid System Designs, 2025. You were the subject.
+    </div>
+    
+    <script>
+        // Matrix rain effect
+        function createMatrixRain() {
+            const matrix = document.getElementById('matrix');
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
+            
+            for (let i = 0; i < 50; i++) {
+                const rain = document.createElement('div');
+                rain.style.position = 'absolute';
+                rain.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                rain.style.fontSize = Math.random() * 20 + 10 + 'px';
+                rain.style.left = Math.random() * 100 + '%';
+                rain.style.animationDuration = Math.random() * 3 + 2 + 's';
+                rain.style.animationName = 'fall';
+                rain.style.animationIterationCount = 'infinite';
+                rain.style.animationTimingFunction = 'linear';
+                rain.textContent = characters[Math.floor(Math.random() * characters.length)];
+                matrix.appendChild(rain);
+            }
+        }
+        
+        // Add falling animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% { top: -20px; opacity: 1; }
+                100% { top: 100vh; opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Cursor trail effect
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.7) {
+                const trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                document.body.appendChild(trail);
+                
+                setTimeout(() => {
+                    trail.remove();
+                }, 1000);
+            }
+        });
+        
+        // Random glitch effects
+        setInterval(() => {
+            const items = document.querySelectorAll('.timeline-item');
+            const randomItem = items[Math.floor(Math.random() * items.length)];
+            if (randomItem && Math.random() > 0.8) {
+                randomItem.style.filter = 'hue-rotate(' + Math.random() * 360 + 'deg) saturate(2)';
+                setTimeout(() => {
+                    randomItem.style.filter = '';
+                }, 500);
+            }
+        }, 2000);
+        
+        // Sound simulation
+        document.addEventListener('click', () => {
+            console.log('🎵 *Distorted Grateful Dead sample echoes through the void* 🎵');
+        });
+        
+        // Initialize effects
+        createMatrixRain();
+        
+        // Psyop image interactions
+        document.querySelectorAll('.psyop-floating, .psyop-center').forEach(img => {
+            img.addEventListener('click', () => {
+                // Trigger paranoid mode
+                document.body.style.filter = 'hue-rotate(180deg) saturate(3) contrast(2)';
+                img.style.animation = 'psyopPulse 0.2s ease-in-out 5';
+                
+                // Flash all timeline items
+                document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.filter = 'invert(1) hue-rotate(' + Math.random() * 360 + 'deg)';
+                        setTimeout(() => {
+                            item.style.filter = '';
+                        }, 200);
+                    }, index * 50);
+                });
+                
+                // Reset after paranoid episode
+                setTimeout(() => {
+                    document.body.style.filter = '';
+                }, 2000);
+                
+                console.log('🕵️ THEY KNOW YOU CLICKED 🕵️');
+            });
+        });
+        
+        // Evidence card reveals
+        document.querySelectorAll('.evidence-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.animation = 'cardFloat 0.5s ease-in-out 3';
+                const scanLine = card.querySelector('::before') || card;
+                scanLine.style.animationDuration = '0.5s';
+                
+                setTimeout(() => {
+                    card.style.animation = 'cardFloat 7s ease-in-out infinite';
+                }, 1500);
+                
+                console.log('📡 DATA PACKET INTERCEPTED 📡');
+            });
+        });
+        
+        // Method item infiltration
+        document.querySelectorAll('.method-item').forEach(method => {
+            method.addEventListener('click', () => {
+                method.style.background = 'rgba(255, 0, 0, 0.2)';
+                method.style.borderColor = '#ff0000';
+                
+                setTimeout(() => {
+                    method.style.background = 'rgba(40, 0, 20, 0.9)';
+                    method.style.borderColor = '#ff4500';
+                }, 1000);
+                
+                console.log('⚠️ OPERATIONAL DETAIL ACCESSED ⚠️');
+            });
+        });
+        
+        // Smoking gun evidence
+        document.querySelectorAll('.smoking-gun').forEach(gun => {
+            gun.addEventListener('click', () => {
+                gun.style.background = 'rgba(255, 255, 255, 0.1)';
+                gun.style.borderColor = '#ffffff';
+                gun.style.transform = 'scale(1.05) rotate(2deg)';
+                
+                // Flash the gun number
+                const number = gun.querySelector('.gun-number');
+                number.style.color = '#ffffff';
+                number.style.textShadow = '0 0 30px #ff0000';
+                
+                setTimeout(() => {
+                    gun.style.background = 'rgba(60, 0, 0, 0.8)';
+                    gun.style.borderColor = '#ff1493';
+                    gun.style.transform = 'scale(1) rotate(0deg)';
+                    number.style.color = '#ff1493';
+                    number.style.textShadow = '0 0 20px #00ffff';
+                }, 1500);
+                
+                console.log('🔫 SMOKING GUN EVIDENCE REVEALED 🔫');
+            });
+        });
+        
+        // Success metrics monitoring
+        document.querySelectorAll('.success-metric').forEach(metric => {
+            metric.addEventListener('mouseenter', () => {
+                metric.style.filter = 'brightness(1.5) saturate(2)';
+                console.log('📊 OPERATION METRICS UNDER SURVEILLANCE 📊');
+            });
+            
+            metric.addEventListener('mouseleave', () => {
+                metric.style.filter = '';
+            });
+        });
+        
+        // Final analysis warning
+        const finalAnalysis = document.querySelector('.final-analysis');
+        if (finalAnalysis) {
+            finalAnalysis.addEventListener('click', () => {
+                finalAnalysis.style.background = 'rgba(255, 0, 0, 0.3)';
+                finalAnalysis.style.borderColor = '#ffffff';
+                
+                // Trigger site-wide alert
+                document.body.style.animation = 'psychedelicBackground 0.1s ease-in-out infinite';
+                
+                setTimeout(() => {
+                    finalAnalysis.style.background = 'rgba(60, 0, 60, 0.9)';
+                    finalAnalysis.style.borderColor = '#ff1493';
+                    document.body.style.animation = 'psychedelicBackground 8s ease-in-out infinite';
+                }, 3000);
+                
+                console.log('🚨 FINAL ANALYSIS CONFIRMED - OPERATION EXPOSED 🚨');
+            });
+        }
+        
+        // Easter egg - konami code
+        let konamiCode = [];
+        const correctCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.code);
+            if (konamiCode.length > correctCode.length) {
+                konamiCode.shift();
+            }
+            if (JSON.stringify(konamiCode) === JSON.stringify(correctCode)) {
+                document.body.style.animation = 'psychedelicBackground 0.1s ease-in-out infinite';
+                setTimeout(() => {
+                    document.body.style.animation = 'psychedelicBackground 8s ease-in-out infinite';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html> 
