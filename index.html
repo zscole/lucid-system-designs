@@ -20,7 +20,7 @@
             animation: psychedelicBackground 8s ease-in-out infinite;
             color: #fff;
             overflow-x: hidden;
-            cursor: crosshair;
+            cursor: default;
             line-height: 1.6;
             font-weight: 400;
         }
@@ -733,6 +733,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             animation: docPulse 3s ease-in-out infinite;
+            cursor: pointer;
         }
         
         .document-link:hover {
@@ -741,6 +742,7 @@
             color: #ffffff;
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(50, 205, 50, 0.6);
+            text-decoration: none;
         }
         
         @keyframes docPulse {
@@ -1017,19 +1019,18 @@
         
         .exit-button {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 20px;
+            right: 20px;
             background: transparent;
-            border: 3px solid transparent;
+            border: 2px solid transparent;
             color: transparent;
-            font-family: 'Metal Mania', cursive;
-            font-size: 2rem;
-            padding: 1rem 2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
             cursor: pointer;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             z-index: 1000;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         
         .exit-button:hover {
@@ -1146,7 +1147,8 @@
             .psyop-floating {
                 width: 120px;
                 top: 10%;
-                right: 2%;
+                left: 2%;
+                opacity: 0.4;
             }
             
             .psyop-background {
@@ -1187,13 +1189,13 @@
         .psyop-floating {
             position: fixed;
             top: 20%;
-            right: 5%;
+            left: 5%;
             width: 200px;
             height: auto;
             z-index: 5;
             animation: psyopFloat 8s ease-in-out infinite, psyopGlow 4s ease-in-out infinite;
             filter: hue-rotate(0deg) saturate(1.5) brightness(1.2);
-            opacity: 0.8;
+            opacity: 0.6;
             transition: all 0.3s ease;
             border-radius: 10px;
             box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
@@ -1360,15 +1362,23 @@
                 
                 <div class="citation">
                     <strong>Sources:</strong><br/>
-                    1. Multiple news reports on Bob Weir's Bohemian Grove attendance (San Francisco Chronicle, 2003-2010)<br/>
-                    2. "The Bohemian Grove and Other Retreats" - G. William Domhoff, 1974<br/>
-                    3. Sonoma County News archives on Grove activities
+                    1. "The Bohemian Grove and Other Retreats" - G. William Domhoff, UC Santa Cruz, 1974<br/>
+                    2. <a href="https://whorulesamerica.ucsc.edu/power/bohemian_grove.html" target="_blank">Who Rules America - Bohemian Grove analysis</a><br/>
+                    3. "Bohemian Grove: Cult of Conspiracy" - Alex Jones documentary, 2000
                 </div>
             </div>
             <div class="evidence-card">
                 <h3 class="card-title">OWSLEY STANLEY - THE CHEMIST</h3>
                 <p class="card-text"><strong>Background Anomalies:</strong> No formal chemistry training. No laboratory equipment purchases on record. Produced 1.25 million doses of pharmaceutical-grade LSD 1965-1967. <strong>Raw materials source: Unknown.</strong></p>
                 <p class="card-text"><strong>Legal Protection:</strong> Arrested 1967, sentenced to 3 years, served 6 months. Multiple drug manufacture charges dismissed. Continued operating lab during legal proceedings. <em>Someone powerful was protecting him.</em></p>
+                <p class="card-text"><strong>The Purity Problem:</strong> Independent analysis shows Owsley's LSD was 99.9% pure - identical to Sandoz pharmaceutical grade. This level of purity requires professional laboratory equipment worth hundreds of thousands of dollars and advanced chemistry knowledge Owsley never possessed.</p>
+                
+                <div class="citation">
+                    <strong>Sources:</strong><br/>
+                    1. "Bear: The Life and Times of Augustus Owsley Stanley III" by Robert Greenfield<br/>
+                    2. DEA Laboratory Reports on LSD seizures, 1960s (available via FOIA)<br/>
+                    3. "The Electric Kool-Aid Acid Test" - Tom Wolfe, 1968
+                </div>
             </div>
             <div class="evidence-card">
                 <h3 class="card-title">HAIGHT-ASHBURY FREE MEDICAL CLINIC</h3>
@@ -1379,6 +1389,27 @@
                 <h3 class="card-title">SANDOZ PHARMACEUTICALS</h3>
                 <p class="card-text"><strong>LSD Source:</strong> Swiss company that originally synthesized LSD. CIA bought entire world supply 1953. Sandoz executives had Nazi connections through Operation Paperclip. Same company later funded psychedelic research at major universities.</p>
                 <p class="card-text">Owsley's LSD matched Sandoz chemical signatures exactly. <em>He was distributing government supply.</em></p>
+                
+                <div class="citation">
+                    <strong>Sources:</strong><br/>
+                    1. "A Terrible Mistake" - H.P. Albarelli Jr. (details CIA-Sandoz contracts)<br/>
+                    2. "Acid Dreams" - Martin A. Lee & Bruce Shlain<br/>
+                    3. CIA contract documents with Sandoz, 1953-1967 (FOIA releases)
+                </div>
+            </div>
+            
+            <div class="evidence-card">
+                <h3 class="card-title">DOCUMENTED CIA MUSIC OPERATIONS</h3>
+                <p class="card-text"><strong>Operation CHAOS:</strong> CIA's domestic surveillance program specifically targeted anti-war and counterculture movements 1967-1974. Music festivals and concerts were primary intelligence gathering venues.</p>
+                <p class="card-text"><strong>Cultural Cold War:</strong> Declassified documents reveal CIA funded jazz festivals, art exhibitions, and cultural events as propaganda tools. Music was a strategic battlefield in the Cold War.</p>
+                <p class="card-text"><strong>The Folk Music Connection:</strong> CIA had documented relationships with folk musicians who performed at anti-war events. The agency understood music's power to influence political movements.</p>
+                
+                <div class="citation">
+                    <strong>Sources:</strong><br/>
+                    1. "The Cultural Cold War" - Frances Stonor Saunders<br/>
+                    2. <a href="https://www.cia.gov/readingroom/collection/family-jewels" target="_blank">CIA Family Jewels documents</a> (1973)<br/>
+                    3. Senate Church Committee Final Report, Book III: "Supplementary Detailed Staff Reports"
+                </div>
             </div>
         </div>
     </div>
@@ -1459,10 +1490,10 @@
                     
                     <div class="citation">
                         <strong>Sources:</strong><br/>
-                        1. Archive.org: Various Grateful Dead Egypt concert recordings and documentation<br/>
-                        2. "Playing in the Band" documentary (Egypt segment)<br/>
-                        3. Crew member interviews published in various Dead publications<br/>
-                        4. <a href="https://www.dead.net/" target="_blank">Dead.net official archives</a> - Band's official documentation
+                        1. <a href="https://archive.org/details/gd1978-09-16.sbd.miller.97821.flac16" target="_blank">Archive.org: Egypt Concert recordings, Sept 16-18, 1978</a><br/>
+                        2. "Deal: My Three Decades of Drumming, Dreams, and Drugs with the Grateful Dead" - Bill Kreutzmann<br/>
+                        3. "Garcia: An American Life" - Blair Jackson (Egypt chapter)<br/>
+                        4. <a href="https://www.dead.net/features/greatest-stories-ever-told/greatest-stories-ever-told-playing-pyramids" target="_blank">Dead.net: Official Egypt documentation</a>
                     </div>
                 </div>
             </div>
@@ -1483,10 +1514,10 @@
                     
                     <div class="citation">
                         <strong>Sources:</strong><br/>
-                        1. FBI FOIA releases on various entertainment industry surveillance programs<br/>
-                        2. Multiple news reports on FBI monitoring of 1960s counterculture movements<br/>
-                        3. "The FBI War on Tupac Shakur and Black Leaders" - John Potash (documents similar surveillance patterns)<br/>
-                        4. <a href="https://www.muckrock.com/" target="_blank">MuckRock FOIA Database</a> - Platform for government transparency requests
+                        1. <a href="https://vault.fbi.gov/cointel-pro" target="_blank">FBI Vault: COINTELPRO documents</a><br/>
+                        2. "Agents of Repression: The FBI's Secret Wars Against the Black Panther Party and the American Indian Movement" - Ward Churchill<br/>
+                        3. Senate Select Committee to Study Intelligence Activities (Church Committee) Final Report, 1976<br/>
+                        4. <a href="https://www.muckrock.com/" target="_blank">MuckRock FOIA Database</a> - Transparency platform with verified releases
                     </div>
                 </div>
             </div>
@@ -1548,6 +1579,40 @@
                     <p class="gun-text"><strong>Hidden Funding Sources:</strong> Multiple shell companies provided "loans" and "investments" with no repayment requirements. Company principals traced to CIA front organizations and defense contractors. Standard business accounting shows impossible cash flow.</p>
                     <p class="gun-text"><strong>Merchandise Revenue:</strong> Dead merchandise generated estimated $100 million+ over band's career. Standard industry practice: 70% to band, 30% to distributors. Dead members received approximately 20%—remaining 80% went to undisclosed recipients.</p>
                     <p class="gun-text"><strong>Tax Analysis:</strong> Band's corporate structure included multiple offshore accounts and tax-exempt foundations. IRS granted unusual exemptions typically reserved for government-related organizations. <em>Someone powerful was protecting their finances.</em></p>
+                </div>
+            </div>
+            
+            <div class="smoking-gun">
+                <span class="gun-number">09</span>
+                <div class="gun-content">
+                    <h4 class="gun-title">THE TIMING ANOMALIES</h4>
+                    <p class="gun-text"><strong>LSD Criminalization:</strong> LSD became illegal in California October 1966. Dead's popularity exploded immediately after. Convenient timing for an operation needing legal cover while maintaining distribution networks.</p>
+                    <p class="gun-text"><strong>The Haight Timing:</strong> Summer of Love 1967 occurred precisely when CIA needed to study mass psychedelic effects. 100,000+ subjects gathered in a 4-block radius with free LSD distribution - a researcher's dream scenario.</p>
+                    <p class="gun-text"><strong>Festival Circuit Creation:</strong> The Dead pioneered the modern music festival circuit in late 1960s, creating repeatable environments for large-scale behavioral studies. This model was later adopted worldwide.</p>
+                    
+                    <div class="citation">
+                        <strong>Sources:</strong><br/>
+                        1. California Health and Safety Code Section 11054 (LSD criminalization timeline)<br/>
+                        2. "Storming Heaven: LSD and the American Dream" - Jay Stevens<br/>
+                        3. <a href="https://www.deaddisc.com/timeline.htm" target="_blank">Grateful Dead concert timeline analysis</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="smoking-gun">
+                <span class="gun-number">10</span>
+                <div class="gun-content">
+                    <h4 class="gun-title">THE MODERN EVIDENCE</h4>
+                    <p class="gun-text"><strong>Declassified MKUltra Documents (2010s):</strong> Recent FOIA releases reveal previously unknown subprojects involving "entertainment industry assets" and "cultural influence operations." Names remain redacted but timelines match Dead's formation.</p>
+                    <p class="gun-text"><strong>Corporate Connections:</strong> Analysis of Dead's business associates reveals connections to defense contractors, tech companies, and intelligence-linked venture capital firms throughout their career.</p>
+                    <p class="gun-text"><strong>The Digital Trail:</strong> Modern data analysis of Dead's touring patterns, venue selections, and audience demographics reveals optimization for maximum psychological impact rather than profit maximization.</p>
+                    
+                    <div class="citation">
+                        <strong>Sources:</strong><br/>
+                        1. <a href="https://www.blackvault.com/casefiles/mkultra-mind-control-documents/" target="_blank">Black Vault: Recent MKUltra releases</a><br/>
+                        2. Corporate registration databases (Nevada, Delaware corporate records)<br/>
+                        3. "The Grateful Dead and the Art of Live Recording" - academic analysis, UC Berkeley 2019
+                    </div>
                 </div>
             </div>
         </div>
