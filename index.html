@@ -164,6 +164,49 @@
             }
         }
         
+        .warning-box {
+            background: rgba(255, 0, 0, 0.1);
+            border: 3px solid #ff0000;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            animation: warningPulse 3s ease-in-out infinite;
+            text-align: center;
+        }
+        
+        .warning-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #ff0000;
+            text-shadow: 0 0 15px #ffffff;
+            margin-bottom: 1rem;
+            animation: warningFlash 2s ease-in-out infinite;
+        }
+        
+        .warning-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.7;
+            color: #ffffff;
+        }
+        
+        @keyframes warningPulse {
+            0%, 100% { 
+                border-color: #ff0000;
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            }
+            50% { 
+                border-color: #ffffff;
+                box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
+            }
+        }
+        
+        @keyframes warningFlash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
         /* Conspiracy Sections */
         .conspiracy-section {
             max-width: 1200px;
@@ -200,10 +243,29 @@
             50% { transform: translateY(-5px); }
         }
         
+        /* Network Introduction */
+        .network-intro {
+            background: rgba(40, 0, 40, 0.8);
+            border: 2px solid #ff00ff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .network-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: #ffffff;
+            animation: textShimmer 5s ease-in-out infinite;
+        }
+        
         /* Evidence Grid */
         .evidence-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -268,9 +330,27 @@
         }
         
         /* Methods Section */
+        .methods-intro {
+            background: rgba(20, 20, 60, 0.8);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .methods-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: #ffffff;
+            animation: textShimmer 5s ease-in-out infinite;
+        }
+        
         .methods-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -334,6 +414,24 @@
         }
         
         /* Smoking Guns Section */
+        .evidence-intro {
+            background: rgba(60, 20, 20, 0.8);
+            border: 2px solid #ff1493;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .evidence-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: #ffffff;
+            animation: textShimmer 5s ease-in-out infinite;
+        }
+        
         .evidence-list {
             margin-top: 2rem;
         }
@@ -423,6 +521,178 @@
             0%, 100% { transform: skewX(0deg); }
             25% { transform: skewX(1deg); }
             75% { transform: skewX(-1deg); }
+        }
+        
+        /* Test Subjects Section */
+        .subjects-intro {
+            background: rgba(80, 0, 0, 0.9);
+            border: 3px solid #ff0000;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            animation: urgentPulse 2s ease-in-out infinite;
+        }
+        
+        .subjects-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.8;
+            color: #ffffff;
+        }
+        
+        @keyframes urgentPulse {
+            0%, 100% { 
+                border-color: #ff0000;
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            }
+            50% { 
+                border-color: #ffffff;
+                box-shadow: 0 0 40px rgba(255, 0, 0, 0.9);
+            }
+        }
+        
+        .experiment-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .experiment-card {
+            background: rgba(40, 20, 60, 0.8);
+            border: 2px solid #9400d3;
+            border-radius: 15px;
+            padding: 2rem;
+            animation: experimentFloat 7s ease-in-out infinite;
+        }
+        
+        .experiment-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #9400d3;
+            text-shadow: 0 0 15px #ffffff;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .experiment-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .experiment-list li {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #9400d3;
+            animation: listShimmer 4s ease-in-out infinite;
+        }
+        
+        @keyframes experimentFloat {
+            0%, 100% { transform: translateY(0px) rotateZ(0deg); }
+            50% { transform: translateY(-6px) rotateZ(0.3deg); }
+        }
+        
+        @keyframes listShimmer {
+            0%, 100% { border-color: #9400d3; }
+            50% { border-color: #ff00ff; }
+        }
+        
+        .victims-section {
+            background: rgba(100, 0, 0, 0.9);
+            border: 3px solid #ff0000;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 4rem;
+            text-align: center;
+            animation: victimsPulse 3s ease-in-out infinite;
+        }
+        
+        .victims-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #ff0000;
+            text-shadow: 0 0 20px #ffffff;
+            margin-bottom: 2rem;
+            animation: victimsGlow 4s ease-in-out infinite;
+        }
+        
+        .victims-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            background: rgba(150, 0, 0, 0.6);
+            border-radius: 10px;
+            animation: statFlash 5s ease-in-out infinite;
+        }
+        
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-shadow: 0 0 15px #ff0000;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #ffffff;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .victims-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: #ffffff;
+            margin-top: 2rem;
+            max-width: 80ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @keyframes victimsPulse {
+            0%, 100% { 
+                border-color: #ff0000;
+                box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+            }
+            50% { 
+                border-color: #ffffff;
+                box-shadow: 0 0 60px rgba(255, 0, 0, 0.8);
+            }
+        }
+        
+        @keyframes victimsGlow {
+            0%, 100% { 
+                text-shadow: 0 0 20px #ffffff;
+            }
+            50% { 
+                text-shadow: 0 0 30px #ff0000, 0 0 40px #ffffff;
+            }
+        }
+        
+        @keyframes statFlash {
+            0%, 100% { background: rgba(150, 0, 0, 0.6); }
+            50% { background: rgba(200, 0, 0, 0.8); }
         }
         
         /* Timeline Section */
@@ -957,89 +1227,257 @@
                 What if the "peace and love" movement was engineered by the same people who brought you MKULTRA, COINTELPRO, and the Kennedy assassination?
             </p>
             <p class="intro-text">
+                <strong>Every concert was a laboratory. Every fan was a test subject. Every song was a delivery mechanism.</strong>
+            </p>
+            <p class="intro-text">
                 The evidence is hiding in plain sight. They didn't need to control the counterculture—they created it.
             </p>
+            <div class="warning-box">
+                <h3 class="warning-title">⚠️ READER WARNING ⚠️</h3>
+                <p class="warning-text">If you attended a Grateful Dead concert, you were an unwitting participant in the largest mind control experiment in human history. Your reactions, movements, and psychological responses were monitored, recorded, and analyzed. You were not a fan—you were a data point.</p>
+            </div>
         </div>
     </div>
     
     <!-- The Network Section -->
     <div class="conspiracy-section">
         <h2 class="section-title">THE NETWORK</h2>
+        <div class="network-intro">
+            <p class="network-text">The Grateful Dead operation was embedded within a vast network of CIA front organizations, research institutions, and intelligence assets. This network had been developing mind control techniques since 1953 and needed a delivery system for mass population testing.</p>
+        </div>
         <div class="evidence-grid">
             <div class="evidence-card">
-                <h3 class="card-title">STANFORD RESEARCH INSTITUTE</h3>
-                <p class="card-text">Where Ken Kesey was first dosed as part of MKULTRA Subproject 27. The same facility that developed ARPANET and remote viewing programs. Kesey walks out with LSD and a mission.</p>
+                <h3 class="card-title">STANFORD RESEARCH INSTITUTE (SRI)</h3>
+                <p class="card-text"><strong>MKULTRA Subproject 27:</strong> Ken Kesey paid $75/day to take LSD, psilocybin, mescaline. Dr. Leo Hollister (CIA contractor) supervised. Same facility later developed ARPANET (Internet), remote viewing programs. <strong>Founded 1946, CIA funding 1952-1970s.</strong></p>
+                <p class="card-text">SRI also conducted "Creative Group Studies" - monitoring group dynamics under psychedelic influence. Kesey was recruited as an unwitting agent to spread LSD use in youth populations.</p>
             </div>
             <div class="evidence-card">
                 <h3 class="card-title">MENLO PARK VA HOSPITAL</h3>
-                <p class="card-text">Ground zero for CIA mind control experiments. Leo Hollister runs LSD studies on veterans. Robert Hunter volunteers. The future Dead lyricist emerges writing in "symbolic language."</p>
+                <p class="card-text"><strong>Dr. Leo Hollister, MD:</strong> CIA contractor running LSD experiments on veterans 1955-1965. Robert Hunter volunteered for "creative enhancement" studies. Hunter later: "It was the strangest thing I've ever experienced."</p>
+                <p class="card-text"><strong>Program Details:</strong> Veterans given LSD without informed consent. Monitoring equipment recorded brain waves, eye movements, verbal responses. Hunter emerged writing in symbols and abstract imagery - perfect for embedding subliminal messages in lyrics.</p>
             </div>
             <div class="evidence-card">
-                <h3 class="card-title">BOHEMIAN GROVE</h3>
-                <p class="card-text">Where intelligence assets and Silicon Valley elites meet annually. The Dead played private shows for this shadow network throughout the 1980s. No recordings. No witnesses.</p>
+                <h3 class="card-title">BOHEMIAN GROVE CONNECTIONS</h3>
+                <p class="card-text"><strong>Bob Weir Member Since 1999:</strong> Documented attendance at Bohemian Grove, the annual gathering of intelligence officials, military contractors, tech executives, and political leaders in Sonoma County.</p>
+                <p class="card-text"><strong>Private Performances:</strong> Dead played exclusive shows for Grove members 1980s-1990s. Guest lists classified. Audio/video recording prohibited. Members included CIA Director William Casey, NSA officials, and defense contractors who profited from surveillance technology.</p>
             </div>
             <div class="evidence-card">
-                <h3 class="card-title">OWSLEY STANLEY</h3>
-                <p class="card-text">Mass-produces LSD with no chemistry background. Funds the band. Builds their sound system. Gets arrested, walks away. No serious jail time. Operation continues uninterrupted.</p>
+                <h3 class="card-title">OWSLEY STANLEY - THE CHEMIST</h3>
+                <p class="card-text"><strong>Background Anomalies:</strong> No formal chemistry training. No laboratory equipment purchases on record. Produced 1.25 million doses of pharmaceutical-grade LSD 1965-1967. <strong>Raw materials source: Unknown.</strong></p>
+                <p class="card-text"><strong>Legal Protection:</strong> Arrested 1967, sentenced to 3 years, served 6 months. Multiple drug manufacture charges dismissed. Continued operating lab during legal proceedings. <em>Someone powerful was protecting him.</em></p>
+            </div>
+            <div class="evidence-card">
+                <h3 class="card-title">HAIGHT-ASHBURY FREE MEDICAL CLINIC</h3>
+                <p class="card-text"><strong>Dr. David Smith, Director:</strong> Received federal grants to study LSD effects. Clinic collected detailed medical data on thousands of users. Patient files shared with government researchers. <strong>Clinic = Data Collection Front.</strong></p>
+                <p class="card-text">Dead concerts created pipeline of test subjects directly to the clinic. "Bad trips" were clinical opportunities to study negative responses to psychoactive compounds.</p>
+            </div>
+            <div class="evidence-card">
+                <h3 class="card-title">SANDOZ PHARMACEUTICALS</h3>
+                <p class="card-text"><strong>LSD Source:</strong> Swiss company that originally synthesized LSD. CIA bought entire world supply 1953. Sandoz executives had Nazi connections through Operation Paperclip. Same company later funded psychedelic research at major universities.</p>
+                <p class="card-text">Owsley's LSD matched Sandoz chemical signatures exactly. <em>He was distributing government supply.</em></p>
             </div>
         </div>
     </div>
 
     <!-- The Methods Section -->
     <div class="conspiracy-section">
-        <h2 class="section-title">THE METHODS</h2>
+        <h2 class="section-title">EXPERIMENTAL PROTOCOLS</h2>
+        <div class="methods-intro">
+            <p class="methods-text">Each Grateful Dead concert was a carefully controlled laboratory environment. The band served as unwitting research assistants in the largest uncontrolled clinical trial in human history. Every aspect was designed to collect data on mass behavioral modification under psychoactive influence.</p>
+        </div>
         <div class="methods-container">
             <div class="method-item">
-                <h3 class="method-title">🎵 SONIC WARFARE</h3>
-                <p class="method-text">The Wall of Sound wasn't about music—it was about frequency manipulation. 28,000 watts of precisely calibrated audio designed to alter brainwave patterns. Phil Lesh studied electronic music and frequency modulation before joining the band.</p>
+                <h3 class="method-title">🎵 SONIC FREQUENCY MANIPULATION</h3>
+                <p class="method-text"><strong>The Wall of Sound (1974):</strong> 28,000 watts, 586 speakers arranged in specific geometric patterns. Not for volume—for precise frequency delivery to different brain regions. <strong>Cost: $275,000 (equivalent to $1.5M today)</strong></p>
+                <p class="method-text"><strong>Technical Specifications:</strong> Phil Lesh (trained in electronic music composition) designed frequencies that matched brainwave patterns: Alpha (8-13 Hz), Beta (13-30 Hz), Theta (4-8 Hz). Each frequency band targeted specific psychological states.</p>
+                <p class="method-text"><strong>Binaural Beats:</strong> Stereo separation created beat frequencies that synchronized brain hemispheres. Audiences reported shared visual hallucinations, collective emotional responses—evidence of externally induced neural entrainment.</p>
             </div>
             <div class="method-item">
-                <h3 class="method-title">💊 CHEMICAL DISTRIBUTION</h3>
-                <p class="method-text">Free LSD at every show created a controlled environment for mass behavioral studies. Dosage, set, setting, and crowd dynamics all monitored. The audience was the experiment.</p>
+                <h3 class="method-title">💊 CONTROLLED SUBSTANCE DISTRIBUTION</h3>
+                <p class="method-text"><strong>Dosage Control:</strong> Owsley's LSD came in standardized doses (100-300 micrograms). Distribution network mapped by venue, date, attendance numbers. Each batch chemically tagged for tracking through biological samples.</p>
+                <p class="method-text"><strong>Set and Setting Protocol:</strong> Concert environment provided controlled "set" (expectation of transcendent experience) and "setting" (familiar music, tribal atmosphere). Variables: lighting patterns, sound frequency sweeps, crowd density, temperature control.</p>
+                <p class="method-text"><strong>Control Groups:</strong> Straight attendees served as baseline. Security staff monitored behavioral differences between dosed and undosed subjects. Medical personnel on-site collected biological samples under guise of "health assistance."</p>
             </div>
             <div class="method-item">
-                <h3 class="method-title">📡 DATA COLLECTION</h3>
-                <p class="method-text">Concert tapes weren't bootlegs—they were research data. Every show recorded, audience reactions catalogued. The Dead encouraged taping to maximize data collection across their network.</p>
+                <h3 class="method-title">📡 COMPREHENSIVE DATA COLLECTION</h3>
+                <p class="method-text"><strong>Audio Surveillance:</strong> Every show recorded from multiple angles. Not for fans—for analysis of crowd response patterns, vocal reactions, timing of peak emotional states. Professional recording equipment beyond typical concert needs.</p>
+                <p class="method-text"><strong>Video Documentation:</strong> Audience filmed continuously. Facial recognition software (primitive but functional) tracked individual responses throughout shows. Body language, dancing patterns, group formation behaviors all catalogued.</p>
+                <p class="method-text"><strong>Taper Network:</strong> Encouraged bootleg recording created distributed surveillance network. Tapers unknowingly collected data from every venue. Master copies archived at undisclosed facilities.</p>
             </div>
             <div class="method-item">
-                <h3 class="method-title">🌐 SOCIAL MAPPING</h3>
-                <p class="method-text">Deadheads became a trackable subculture. No fixed addresses, cash-only economy, but predictable migration patterns. Perfect for studying distributed influence networks.</p>
+                <h3 class="method-title">🌐 POPULATION TRACKING & MAPPING</h3>
+                <p class="method-text"><strong>Migration Patterns:</strong> Deadheads followed predictable routes between shows. No permanent addresses but highly trackable movement patterns. Ideal for studying nomadic population control methods.</p>
+                <p class="method-text"><strong>Economic Analysis:</strong> Cash-only economy created parallel financial system. Drug sales, ticket scalping, merchandise—all monitored to understand alternative economic behaviors under influence of psychoactive compounds.</p>
+                <p class="method-text"><strong>Social Network Mapping:</strong> Long-term relationships, tribal hierarchies, influence networks all mapped. "Family" structures provided data on non-traditional social organization under psychedelic influence.</p>
+            </div>
+            <div class="method-item">
+                <h3 class="method-title">🧠 PSYCHOLOGICAL PROFILING</h3>
+                <p class="method-text"><strong>Personality Assessment:</strong> Entry surveys disguised as "fan questionnaires." Myers-Briggs indicators, psychological profiling, political beliefs, family backgrounds. Data used to predict susceptibility to influence.</p>
+                <p class="method-text"><strong>Behavioral Modification Testing:</strong> Song selection, tempo changes, light shows all designed to trigger specific emotional responses. Real-time measurement of crowd reaction to different stimuli combinations.</p>
+                <p class="method-text"><strong>Long-term Studies:</strong> Follow-up contact with attendees through mailing lists, fan clubs. Tracked life changes: political views, career choices, relationship patterns. Measuring long-term impact of psychedelic exposure.</p>
+            </div>
+            <div class="method-item">
+                <h3 class="method-title">⚗️ BIOCHEMICAL SAMPLING</h3>
+                <p class="method-text"><strong>Hair/Saliva Collection:</strong> Security and medical staff collected biological samples from attendees. Tested for drug metabolites, stress hormones, neurotransmitter levels. Built database of biochemical responses to psychoactive compounds.</p>
+                <p class="method-text"><strong>Environmental Monitoring:</strong> Air quality sensors measured oxygen levels, CO2, airborne chemicals. Correlated with crowd behavior to optimize environmental factors for maximum psychological impact.</p>
+                <p class="method-text"><strong>Medical Emergency Data:</strong> "Bad trips" provided clinical data on negative reactions. Symptoms, recovery times, treatment responses all documented. Built profiles of individuals resistant to psychedelic influence.</p>
             </div>
         </div>
     </div>
 
     <!-- The Evidence Section -->
     <div class="conspiracy-section">
-        <h2 class="section-title">THE SMOKING GUNS</h2>
+        <h2 class="section-title">IRREFUTABLE EVIDENCE</h2>
+        <div class="evidence-intro">
+            <p class="evidence-text">The following evidence establishes beyond reasonable doubt that the Grateful Dead were a CIA psychological operation. Each piece represents decades of investigation into classified documents, financial records, and testimonial evidence from intelligence insiders.</p>
+        </div>
         <div class="evidence-list">
             <div class="smoking-gun">
                 <span class="gun-number">01</span>
                 <div class="gun-content">
-                    <h4 class="gun-title">THE EGYPTIAN CONCERTS</h4>
-                    <p class="gun-text">September 1978: The Dead play three nights at the Great Pyramid with no label support, no tour funding, no official explanation. Sound equipment positioned to project frequencies into ancient architecture during a rare planetary alignment. Acoustic resonance experiments conducted under cover of rock concert.</p>
+                    <h4 class="gun-title">THE EGYPTIAN PYRAMID EXPERIMENTS</h4>
+                    <p class="gun-text"><strong>September 16-18, 1978:</strong> Dead perform three nights at the Great Pyramid of Giza. <strong>No record label funding. No tour sponsorship. No official documentation of who paid the estimated $500,000 cost.</strong></p>
+                    <p class="gun-text"><strong>Acoustic Research:</strong> Sound equipment positioned to project specific frequencies into pyramid chambers. Ancient architecture creates natural resonance amplification. Planetary alignment with Mars created rare atmospheric conditions optimal for long-distance frequency transmission.</p>
+                    <p class="gun-text"><strong>Attendee Reports:</strong> Widespread reports of shared hallucinations, collective out-of-body experiences, telepathic communication between audience members. These effects extended far beyond typical psychedelic experiences—evidence of engineered consciousness manipulation.</p>
+                    <p class="gun-text"><strong>Missing Documentation:</strong> No official recordings released. Video footage classified. Egyptian government denies any record of event approval. <em>Someone with significant power orchestrated this operation.</em></p>
                 </div>
             </div>
             <div class="smoking-gun">
                 <span class="gun-number">02</span>
                 <div class="gun-content">
-                    <h4 class="gun-title">FBI SURVEILLANCE TAPES</h4>
-                    <p class="gun-text">Released FOIA documents reveal continuous FBI monitoring from 1965-1995. But here's the anomaly: they never disrupted operations. No raids, no arrests, no interference. They were protecting the operation, not investigating it.</p>
+                    <h4 class="gun-title">FBI PROTECTION OPERATION</h4>
+                    <p class="gun-text"><strong>FOIA Documents (Released 1995-2010):</strong> FBI maintained continuous surveillance of the Grateful Dead from 1965-1995. Over 3,000 pages of documents detail every tour, venue, and known associate.</p>
+                    <p class="gun-text"><strong>The Anomaly:</strong> Despite extensive drug distribution, money laundering, and federal crimes documented in FBI files, no significant arrests were ever made. Standard FBI protocol would have shut down the operation within months.</p>
+                    <p class="gun-text"><strong>Protective Instructions:</strong> Internal memos reference "hands-off" directives from "higher authority." Field agents instructed to "monitor but not interfere with ongoing operations." Clear evidence of protection from above.</p>
+                    <p class="gun-text"><strong>Agent Testimonies:</strong> Former FBI agent Ted Gunderson (1928-2011) stated before his death: "The Dead were protected because they were serving a purpose higher than law enforcement." Multiple agents confirm unusual protection orders.</p>
                 </div>
             </div>
             <div class="smoking-gun">
                 <span class="gun-number">03</span>
                 <div class="gun-content">
-                    <h4 class="gun-title">GARCIA'S "DEATH" AND REBIRTH</h4>
-                    <p class="gun-text">1986: Garcia falls into a diabetic coma. Emerges weeks later fundamentally changed. Different playing style, darker lyrics, distant eyes. Band insiders whisper about "programming sessions" during his unconscious period.</p>
+                    <h4 class="gun-title">GARCIA'S PSYCHOLOGICAL RECONSTRUCTION</h4>
+                    <p class="gun-text"><strong>July 1986:</strong> Jerry Garcia slips into diabetic coma. Hospitalized at Marin General Hospital for 5 days. During this period, access to Garcia was restricted to "essential medical personnel only."</p>
+                    <p class="gun-text"><strong>Behavioral Changes Post-Coma:</strong> Garcia emerged with dramatically altered personality. Previous warmth replaced by emotional distance. Playing style became mechanical, improvisation patterns repetitive. Bandmates noted "something was different about Jerry."</p>
+                    <p class="gun-text"><strong>Medical Anomalies:</strong> Garcia's medical records from this period remain classified under national security exemptions. Standard diabetic coma treatment doesn't require classified medical procedures. <em>What happened during those 5 days?</em></p>
+                    <p class="gun-text"><strong>Insider Testimony:</strong> Band crew member (name withheld for protection) reported seeing "men in suits" entering Garcia's room multiple times. Security cameras in Garcia's wing were "temporarily disabled" during his stay.</p>
                 </div>
             </div>
             <div class="smoking-gun">
                 <span class="gun-number">04</span>
                 <div class="gun-content">
-                    <h4 class="gun-title">THE ALTAMONT EXTRACTION</h4>
-                    <p class="gun-text">December 1969: The Dead are scheduled to close Altamont but leave before their set. They knew what was coming. CIA debrief documents later classify the event as a "successful chaos generation exercise under live conditions."</p>
+                    <h4 class="gun-title">ALTAMONT: CONTROLLED CHAOS EXPERIMENT</h4>
+                    <p class="gun-text"><strong>December 6, 1969:</strong> Altamont Free Concert designed to test crowd control under crisis conditions. Dead scheduled to headline but mysteriously departed before violence erupted. <strong>They knew what was coming.</strong></p>
+                    <p class="gun-text"><strong>CIA Debrief Documents:</strong> Classified CIA analysis (partially released 2001) describes Altamont as "successful test of crisis-induced behavioral modification under psychoactive influence." Violence was not accidental—it was engineered.</p>
+                    <p class="gun-text"><strong>Hells Angels Recruitment:</strong> Angels were specifically recruited as "security" despite known violence history. Payment came from undisclosed sources. Angels reported receiving "special briefings" before the event about "crowd management techniques."</p>
+                    <p class="gun-text"><strong>Dead's Early Departure:</strong> Band received "safety warning" at 3 PM—hours before violence began. Source of warning: never disclosed. They were evacuated via helicopter before sunset, abandoning their fans to orchestrated chaos.</p>
                 </div>
             </div>
+            <div class="smoking-gun">
+                <span class="gun-number">05</span>
+                <div class="gun-content">
+                    <h4 class="gun-title">OWSLEY'S IMPOSSIBLE LABORATORY</h4>
+                    <p class="gun-text"><strong>Production Impossibility:</strong> Owsley Stanley produced 1.25 million doses of LSD between 1965-1967 with no documented chemistry training, no traceable equipment purchases, and no recorded precursor chemical acquisitions.</p>
+                    <p class="gun-text"><strong>Financial Analysis:</strong> Conservative estimate: $500,000 in raw materials and equipment required (1965 dollars = $4.2M today). Owsley's documented income: $15,000/year from part-time work. <strong>Source of funding: Unknown.</strong></p>
+                    <p class="gun-text"><strong>Chemical Signatures:</strong> Independent analysis of Owsley's LSD matched Sandoz pharmaceutical-grade compounds exactly. Identical purity levels, identical molecular structure, identical trace compounds. <em>He was distributing government supply.</em></p>
+                    <p class="gun-text"><strong>Legal Immunity:</strong> Despite multiple federal felony charges, Owsley served only 6 months in prison. Multiple charges dismissed "in the interest of national security." Standard federal drug manufacturing carries 20-year minimum sentences.</p>
+                </div>
+            </div>
+            <div class="smoking-gun">
+                <span class="gun-number">06</span>
+                <div class="gun-content">
+                    <h4 class="gun-title">THE BOHEMIAN GROVE CONNECTION</h4>
+                    <p class="gun-text"><strong>Bob Weir's Membership:</strong> Documented member of Bohemian Grove since 1999. Annual dues: $10,000+ (well beyond typical musician income). Grove membership requires sponsorship from existing members—primarily intelligence officials, defense contractors, and tech executives.</p>
+                    <p class="gun-text"><strong>Private Performances:</strong> Dead performed private concerts for Grove members throughout the 1980s-1990s. Guest lists included CIA Director William Casey, NSA officials, and executives from defense contractors developing surveillance technology.</p>
+                    <p class="gun-text"><strong>Grove Recordings:</strong> All Bohemian Grove activities are recorded for "member archives." These recordings have never been released and are classified under national security exemptions. <em>What was discussed at these private performances?</em></p>
+                    <p class="gun-text"><strong>Financial Connections:</strong> Multiple Grove members invested in music industry companies that profited from Dead merchandise, recordings, and touring revenue. The band's success directly enriched intelligence community assets.</p>
+                </div>
+            </div>
+            <div class="smoking-gun">
+                <span class="gun-number">07</span>
+                <div class="gun-content">
+                    <h4 class="gun-title">MKULTRA DOCUMENT TRAIL</h4>
+                    <p class="gun-text"><strong>Senate Church Committee (1975):</strong> Officially terminated MKULTRA, but budget analysis reveals $87 million in unaccounted funding between 1953-1975. Standard government accounting requires full documentation—these funds disappeared.</p>
+                    <p class="gun-text"><strong>Subproject Classifications:</strong> MKULTRA included 149 documented subprojects. Church Committee only examined 80. Remaining 69 subprojects remain classified "for reasons of national security." <strong>What were they hiding?</strong></p>
+                    <p class="gun-text"><strong>Stanford Research Contracts:</strong> SRI received $2.3 million in MKULTRA funding 1960-1965—exact period when Kesey and Hunter were recruited. Contract details remain classified. Standard research grants are public record unless they involve classified operations.</p>
+                    <p class="gun-text"><strong>Personnel Crossover:</strong> Multiple MKULTRA researchers later appeared in Dead's orbit: Dr. Leo Hollister (SRI contractor), Dr. Timothy Leary (CIA asset), Dr. David Smith (Haight clinic director). <em>Too many connections to be coincidental.</em></p>
+                </div>
+            </div>
+            <div class="smoking-gun">
+                <span class="gun-number">08</span>
+                <div class="gun-content">
+                    <h4 class="gun-title">THE FINANCIAL IMPOSSIBILITY</h4>
+                    <p class="gun-text"><strong>Operating Costs vs. Revenue:</strong> Dead's operation required millions in annual funding: elaborate sound systems, massive crew, continuous touring, free concerts. Band members lived modestly—where did the money go?</p>
+                    <p class="gun-text"><strong>Hidden Funding Sources:</strong> Multiple shell companies provided "loans" and "investments" with no repayment requirements. Company principals traced to CIA front organizations and defense contractors. Standard business accounting shows impossible cash flow.</p>
+                    <p class="gun-text"><strong>Merchandise Revenue:</strong> Dead merchandise generated estimated $100 million+ over band's career. Standard industry practice: 70% to band, 30% to distributors. Dead members received approximately 20%—remaining 80% went to undisclosed recipients.</p>
+                    <p class="gun-text"><strong>Tax Analysis:</strong> Band's corporate structure included multiple offshore accounts and tax-exempt foundations. IRS granted unusual exemptions typically reserved for government-related organizations. <em>Someone powerful was protecting their finances.</em></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Subjects Section -->
+    <div class="conspiracy-section">
+        <h2 class="section-title">YOU WERE THE EXPERIMENT</h2>
+        <div class="subjects-intro">
+            <p class="subjects-text">Every person who attended a Grateful Dead concert was an unwitting participant in the largest uncontrolled human experimentation program in history. You were not a fan. You were a test subject. Your participation was not voluntary—it was engineered.</p>
+        </div>
+        
+        <div class="experiment-details">
+            <div class="experiment-card">
+                <h3 class="experiment-title">DATA COLLECTION PROTOCOLS</h3>
+                <ul class="experiment-list">
+                    <li><strong>Biometric Monitoring:</strong> Heart rate, body temperature, perspiration levels measured through "medical assistance" checkpoints</li>
+                    <li><strong>Behavioral Tracking:</strong> Dancing patterns, group formation, individual movement tracked via overhead cameras</li>
+                    <li><strong>Audio Surveillance:</strong> Conversations recorded through directional microphones to assess psychological effects</li>
+                    <li><strong>Chemical Testing:</strong> Hair/saliva samples collected during "health screenings" to measure drug metabolites</li>
+                    <li><strong>Psychological Profiling:</strong> Entry surveys disguised as "fan questionnaires" assessed personality types and susceptibility</li>
+                </ul>
+            </div>
+            
+            <div class="experiment-card">
+                <h3 class="experiment-title">EXPERIMENTAL VARIABLES</h3>
+                <ul class="experiment-list">
+                    <li><strong>LSD Dosage:</strong> Different batches with varying concentrations distributed to measure dose-response relationships</li>
+                    <li><strong>Sound Frequencies:</strong> Specific frequency patterns tested for neurological effects and crowd synchronization</li>
+                    <li><strong>Environmental Factors:</strong> Temperature, humidity, lighting conditions manipulated to optimize psychological receptivity</li>
+                    <li><strong>Social Dynamics:</strong> Crowd density, seating arrangements, group interactions all controlled variables</li>
+                    <li><strong>Duration Studies:</strong> Multi-day festivals allowed extended monitoring of psychological state changes</li>
+                </ul>
+            </div>
+            
+            <div class="experiment-card">
+                <h3 class="experiment-title">RESEARCH OBJECTIVES</h3>
+                <ul class="experiment-list">
+                    <li><strong>Mass Mind Control:</strong> Testing methods for controlling large populations through chemical and acoustic manipulation</li>
+                    <li><strong>Social Engineering:</strong> Studying how counterculture movements could be artificially created and directed</li>
+                    <li><strong>Behavioral Prediction:</strong> Developing algorithms to predict individual responses to psychological operations</li>
+                    <li><strong>Resistance Mapping:</strong> Identifying individuals immune to psychedelic influence for further study</li>
+                    <li><strong>Long-term Effects:</strong> Tracking subjects for decades to measure persistent psychological changes</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="victims-section">
+            <h3 class="victims-title">THE HUMAN COST</h3>
+            <div class="victims-stats">
+                <div class="stat-item">
+                    <span class="stat-number">25,000,000+</span>
+                    <span class="stat-label">Total Test Subjects (Concert Attendees 1965-1995)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2,318</span>
+                    <span class="stat-label">Estimated "Bad Trip" Hospital Admissions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">847</span>
+                    <span class="stat-label">Documented Long-term Psychological Damage Cases</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">156</span>
+                    <span class="stat-label">Suspected Deaths from Experimental Procedures</span>
+                </div>
+            </div>
+            <p class="victims-text">These numbers represent real human beings whose lives were forever altered by their unwitting participation in CIA mind control experiments. Many victims remain unaware that their psychological problems, relationship difficulties, and life struggles can be traced directly to their exposure to experimental psychoactive compounds and frequency manipulation at Grateful Dead concerts.</p>
         </div>
     </div>
 
