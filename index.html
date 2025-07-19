@@ -734,6 +734,8 @@
             transition: all 0.3s ease;
             animation: docPulse 3s ease-in-out infinite;
             cursor: pointer;
+            position: relative;
+            z-index: 10;
         }
         
         .document-link:hover {
@@ -1144,12 +1146,7 @@
                 font-size: 1rem;
             }
             
-            .psyop-floating {
-                width: 120px;
-                top: 10%;
-                left: 2%;
-                opacity: 0.4;
-            }
+
             
             .psyop-background {
                 width: 200px;
@@ -1185,28 +1182,95 @@
             }
         }
         
-        /* Psyop Image Effects */
-        .psyop-floating {
+        /* Psyop Image Effects - Multiple Integration Approaches */
+        
+        /* 1. Corner Interactive Element */
+        .psyop-corner {
             position: fixed;
-            top: 20%;
-            left: 5%;
-            width: 200px;
+            top: 10px;
+            right: 10px;
+            width: 80px;
             height: auto;
-            z-index: 5;
-            animation: psyopFloat 8s ease-in-out infinite, psyopGlow 4s ease-in-out infinite;
-            filter: hue-rotate(0deg) saturate(1.5) brightness(1.2);
-            opacity: 0.6;
+            z-index: 1000;
+            animation: psyopPulse 6s ease-in-out infinite;
+            filter: saturate(1.5) brightness(1.2);
+            opacity: 0.7;
             transition: all 0.3s ease;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid rgba(255, 0, 255, 0.3);
         }
         
-        .psyop-floating:hover {
-            transform: scale(1.1) rotate(5deg);
+        .psyop-corner:hover {
+            transform: scale(1.2) rotate(10deg);
             opacity: 1;
             filter: hue-rotate(180deg) saturate(2) brightness(1.5);
-            box-shadow: 0 0 50px rgba(255, 0, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.6);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+            border-color: rgba(255, 0, 255, 0.8);
         }
+        
+        /* 2. Background Watermarks */
+        .psyop-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            width: 300px;
+            height: auto;
+            opacity: 0.03;
+            z-index: 1;
+            filter: blur(1px);
+            pointer-events: none;
+        }
+        
+        .conspiracy-section {
+            position: relative;
+        }
+        
+        /* 3. Section Dividers */
+        .psyop-divider {
+            width: 60px;
+            height: auto;
+            margin: 3rem auto;
+            display: block;
+            opacity: 0.4;
+            filter: saturate(1.8) brightness(1.3);
+            animation: psyopDrift 8s ease-in-out infinite, psyopGlow 6s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .psyop-divider:hover {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+        
+        /* 4. Header Integration */
+        .psyop-header {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 40px;
+            height: auto;
+            opacity: 0.6;
+            filter: saturate(2) brightness(1.4);
+            animation: psyopGlow 8s ease-in-out infinite;
+        }
+        
+        /* 5. Parallax Background Elements */
+        .psyop-parallax {
+            position: fixed;
+            width: 150px;
+            height: auto;
+            opacity: 0.08;
+            z-index: 0;
+            filter: blur(2px);
+            pointer-events: none;
+            animation: psyopDrift 20s ease-in-out infinite;
+        }
+        
+        .psyop-parallax-1 { top: 30%; left: 85%; }
+        .psyop-parallax-2 { top: 60%; left: 5%; transform: rotate(45deg); }
+        .psyop-parallax-3 { top: 80%; left: 90%; transform: rotate(-30deg); }
         
         @keyframes psyopFloat {
             0%, 100% { 
@@ -1284,6 +1348,11 @@
             0% { filter: drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 40px #00ffff) hue-rotate(0deg); }
             100% { filter: drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 40px #00ffff) hue-rotate(360deg); }
         }
+        
+        @keyframes psyopDrift {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
     </style>
 </head>
 <body>
@@ -1291,7 +1360,14 @@
     <div class="matrix-rain" id="matrix"></div>
     
     <!-- Floating Psyop Image -->
-    <img src="psyop.png" alt="PSYOP" class="psyop-floating" title="The Operation is Real">
+    <!-- Psyop Multi-Integration -->
+    <!-- 1. Corner Interactive Element -->
+    <img src="psyop.png" alt="PSYOP" class="psyop-corner" title="The Operation is Real - Click for Paranoid Mode">
+    
+    <!-- 2. Parallax Background Elements -->
+    <img src="psyop.png" alt="" class="psyop-parallax psyop-parallax-1">
+    <img src="psyop.png" alt="" class="psyop-parallax psyop-parallax-2">
+    <img src="psyop.png" alt="" class="psyop-parallax psyop-parallax-3">
     
     <!-- Background Drifting Psyop -->
     <img src="psyop.png" alt="PSYOP" class="psyop-background">
@@ -1300,8 +1376,12 @@
     <button class="exit-button" onclick="window.close()">CLICK TO EXIT THE SYSTEM</button>
     
     <!-- Header -->
-    <div class="header">
-        <h1 class="main-title">THE DELIVERY SYSTEM: AN UNAUTHORIZED HISTORY</h1>
+    <div class="header" style="position: relative;">
+        <h1 class="main-title" style="position: relative;">
+            <!-- 4. Header Integration -->
+            <img src="psyop.png" alt="" class="psyop-header">
+            THE DELIVERY SYSTEM: AN UNAUTHORIZED HISTORY
+        </h1>
         <p class="subtitle">Lucid System Designs is not a company. It's a warning.</p>
         
         <!-- Introduction Section -->
@@ -1326,6 +1406,8 @@
     
     <!-- The Network Section -->
     <div class="conspiracy-section">
+        <!-- 2. Background Watermark -->
+        <img src="psyop.png" alt="" class="psyop-watermark">
         <h2 class="section-title">THE NETWORK</h2>
         <div class="network-intro">
             <p class="network-text">The Grateful Dead operation was embedded within a vast network of CIA front organizations, research institutions, and intelligence assets. This network had been developing mind control techniques since 1953 and needed a delivery system for mass population testing.</p>
@@ -1468,7 +1550,12 @@
     </div>
 
     <!-- The Evidence Section -->
+    <!-- 3. Section Divider -->
+    <img src="psyop.png" alt="" class="psyop-divider">
+    
     <div class="conspiracy-section">
+        <!-- 2. Background Watermark -->
+        <img src="psyop.png" alt="" class="psyop-watermark">
         <h2 class="section-title">IRREFUTABLE EVIDENCE</h2>
         <div class="evidence-intro">
             <p class="evidence-text">The following evidence establishes beyond reasonable doubt that the Grateful Dead were a CIA psychological operation. Each piece represents decades of investigation into classified documents, financial records, and testimonial evidence from intelligence insiders.</p>
@@ -1536,7 +1623,7 @@
                     <div class="citation">
                         <strong>Sources:</strong><br/>
                         1. "Garcia: An American Life" - Blair Jackson, Chapters 18-19<br/>
-                        2. <a href="https://archive.org/details/garciaprivatelife" target="_blank">"Captain Trips: A Biography of Jerry Garcia"</a> - Sandy Troy<br/>
+                        2. "Captain Trips: A Biography of Jerry Garcia" - Sandy Troy<br/>
                         3. <a href="https://www.marinhealthcare.org/" target="_blank">Marin General Hospital</a> - Historical medical privacy policies<br/>
                         4. Confidential interviews with former Dead crew (names withheld for protection)
                     </div>
@@ -1551,14 +1638,14 @@
                     <p class="gun-text"><strong>Hells Angels Recruitment:</strong> Angels were specifically recruited as "security" despite known violence history. Payment came from undisclosed sources. Angels reported receiving "special briefings" before the event about "crowd management techniques."</p>
                     <p class="gun-text"><strong>Dead's Early Departure:</strong> Band received "safety warning" at 3 PM—hours before violence began. Source of warning: never disclosed. They were evacuated via helicopter before sunset, abandoning their fans to orchestrated chaos.</p>
                     
-                    <a href="https://archive.org/details/gimme-shelter-full-documentary" target="_blank" class="document-link">🔗 Archive.org: Gimme Shelter Documentary</a>
+                    <a href="https://www.youtube.com/watch?v=bbdZ9c1dTi8" target="_blank" class="document-link">🔗 YouTube: Gimme Shelter Documentary</a>
                     <a href="https://www.rollingstone.com/music/music-news/altamont-free-concert-rolling-stones-194616/" target="_blank" class="document-link">🔗 Rolling Stone: Altamont Investigation</a>
                     <a href="https://www.cia.gov/readingroom/collection/family-jewels" target="_blank" class="document-link">🔗 CIA Family Jewels Collection</a>
                     
                     <div class="citation">
                         <strong>Sources:</strong><br/>
                         1. "Let It Bleed: The Rolling Stones, Altamont, and the End of the Sixties" - Ethan Russell<br/>
-                        2. <a href="https://archive.org/details/altamontfreewayhell" target="_blank">"Altamont: Death of Innocence in the Woodstock Nation"</a> - Joel Selvin<br/>
+                        2. "Altamont: Death of Innocence in the Woodstock Nation" - Joel Selvin<br/>
                         3. <a href="https://www.sfgate.com/bayarea/article/altamont-speedway-concert-1969-murder-mick-jagger-14907857.php" target="_blank">SF Gate: Altamont 50th Anniversary Investigation</a><br/>
                         4. FBI files on Hells Angels activities, released 1995-2010
                     </div>
@@ -1597,7 +1684,7 @@
                     
                     <a href="https://www.amazon.com/Bohemian-Grove-Other-Retreats-Study/dp/0930852001" target="_blank" class="document-link">🔗 "The Bohemian Grove and Other Retreats" Book</a>
                     <a href="https://whorulesamerica.ucsc.edu/power/bohemian_grove.html" target="_blank" class="document-link">🔗 UC Santa Cruz: Bohemian Grove Research</a>
-                    <a href="https://archive.org/details/dark-secrets-inside-bohemian-grove" target="_blank" class="document-link">🔗 Archive.org: Bohemian Grove Documentary</a>
+                    <a href="https://www.infowars.com/dark-secrets-inside-bohemian-grove/" target="_blank" class="document-link">🔗 InfoWars: Bohemian Grove Documentary</a>
                     
                     <div class="citation">
                         <strong>Sources:</strong><br/>
@@ -1706,7 +1793,7 @@
                         1. "Acid Dreams: The Complete Social History of LSD" - Martin A. Lee & Bruce Shlain<br/>
                         2. <a href="https://www.cia.gov/readingroom/collection/mkultra" target="_blank">CIA MKULTRA documents</a> - Subproject 39 files<br/>
                         3. "The Electric Kool-Aid Acid Test" - Tom Wolfe<br/>
-                        4. <a href="https://archive.org/details/hunterlyricist" target="_blank">Hunter interviews</a> - Archive.org collection
+                        4. Hunter interviews - Various publications 1970s-1990s
                     </div>
                 </div>
             </div>
@@ -1745,7 +1832,7 @@
                     
                     <a href="https://www.prosoundnetwork.com/" target="_blank" class="document-link">🔗 Pro Sound Network</a>
                     <a href="https://www.defense.gov/News/Article/Article/604451/" target="_blank" class="document-link">🔗 DOD: Non-Lethal Weapons Research</a>
-                    <a href="https://archive.org/details/wallofsounda" target="_blank" class="document-link">🔗 Archive.org: Wall of Sound Documentation</a>
+                    <a href="https://www.dead.net/features/wall-of-sound" target="_blank" class="document-link">🔗 Dead.net: Wall of Sound History</a>
                     
                     <div class="citation">
                         <strong>Sources:</strong><br/>
@@ -1767,13 +1854,13 @@
                     <p class="gun-text"><strong>Government Observers:</strong> Men in suits regularly attended Acid Tests, taking notes and photographing participants. When questioned, they claimed to be "sociology graduate students"—but carried government identification.</p>
                     
                     <a href="https://erowid.org/culture/characters/kesey_ken/" target="_blank" class="document-link">🔗 Erowid: Ken Kesey Archive</a>
-                    <a href="https://archive.org/details/acidtestdocs" target="_blank" class="document-link">🔗 Archive.org: Acid Test Documentation</a>
+                    <a href="https://www.pranksterweb.org/" target="_blank" class="document-link">🔗 Prankster History Archive</a>
                     <a href="https://www.archives.gov/research/foreign-policy/related-records/mkultra" target="_blank" class="document-link">🔗 National Archives: Related MKUltra Records</a>
                     
                     <div class="citation">
                         <strong>Sources:</strong><br/>
                         1. "The Electric Kool-Aid Acid Test" - Tom Wolfe<br/>
-                        2. <a href="https://archive.org/details/furtherbus" target="_blank">Archive.org: Further Bus documentation</a><br/>
+                        2. "Further" bus documentation - Kesey Estate archives<br/>
                         3. FBI surveillance reports on Ken Kesey, released 1995<br/>
                         4. Participant interviews collected 1980s-2000s
                     </div>
@@ -1813,8 +1900,7 @@
                     <p class="gun-text"><strong>The Cover-Up:</strong> Band members were threatened with "serious consequences" if they revealed the substitution. The operation continued until Garcia's "official" death, allowing time to plan the post-Garcia phase of the experiment.</p>
                     
                     <a href="https://www.archives.gov/foia" target="_blank" class="document-link">🔗 National Archives: FOIA Request Portal</a>
-                    <a href="https://www.sfgate.com/bayarea/article/Jerry-Garcia-died-20-years-ago-today-Here-s-6434097.php" target="_blank" class="document-link">🔗 SF Gate: Garcia Death Investigation</a>
-                    <a href="https://archive.org/details/garciaautopsy" target="_blank" class="document-link">🔗 Archive.org: Autopsy Records</a>
+                    <a href="https://www.upi.com/Archives/1995/08/30/Garcia-died-of-ailing-heart/8952809755200/" target="_blank" class="document-link">🔗 UPI: Official Garcia Death Report 1995</a>
                     
                     <div class="citation">
                         <strong>Sources:</strong><br/>
@@ -1828,8 +1914,13 @@
         </div>
     </div>
 
+    <!-- 3. Section Divider -->
+    <img src="psyop.png" alt="" class="psyop-divider">
+    
     <!-- Test Subjects Section -->
     <div class="conspiracy-section">
+        <!-- 2. Background Watermark -->
+        <img src="psyop.png" alt="" class="psyop-watermark">
         <h2 class="section-title">YOU WERE THE EXPERIMENT</h2>
         <div class="subjects-intro">
             <p class="subjects-text">Every person who attended a Grateful Dead concert was an unwitting participant in the largest uncontrolled human experimentation program in history. You were not a fan. You were a test subject. Your participation was not voluntary—it was engineered.</p>
@@ -2011,8 +2102,13 @@
         They engineered the culture so they wouldn't need to control it.
     </div>
     
+    <!-- 3. Section Divider -->
+    <img src="psyop.png" alt="" class="psyop-divider">
+    
     <!-- Comprehensive References Section -->
-    <div class="footnotes">
+    <div class="footnotes" style="position: relative;">
+        <!-- 2. Background Watermark -->
+        <img src="psyop.png" alt="" class="psyop-watermark">
         <h3>RESEARCH SOURCES & DOCUMENTATION</h3>
         
         <div class="footnote">
@@ -2152,6 +2248,18 @@
             }
         }, 2000);
         
+        // Parallax effect for background psyop elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax1 = document.querySelector('.psyop-parallax-1');
+            const parallax2 = document.querySelector('.psyop-parallax-2');
+            const parallax3 = document.querySelector('.psyop-parallax-3');
+            
+            if (parallax1) parallax1.style.transform = `translateY(${scrolled * 0.2}px)`;
+            if (parallax2) parallax2.style.transform = `rotate(45deg) translateY(${scrolled * -0.1}px)`;
+            if (parallax3) parallax3.style.transform = `rotate(-30deg) translateY(${scrolled * 0.15}px)`;
+        });
+        
         // Sound simulation
         document.addEventListener('click', () => {
             console.log('🎵 *Distorted Grateful Dead sample echoes through the void* 🎵');
@@ -2161,7 +2269,7 @@
         createMatrixRain();
         
         // Psyop image interactions
-        document.querySelectorAll('.psyop-floating, .psyop-center').forEach(img => {
+        document.querySelectorAll('.psyop-corner, .psyop-center').forEach(img => {
             img.addEventListener('click', () => {
                 // Trigger paranoid mode
                 document.body.style.filter = 'hue-rotate(180deg) saturate(3) contrast(2)';
